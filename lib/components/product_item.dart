@@ -15,6 +15,7 @@ class ProductItem extends StatelessWidget {
           leading: IconButton(
             onPressed: () {},
             icon: const Icon(Icons.favorite),
+            color: Colors.deepOrange
           ),
           title: Text(
             product.title,
@@ -24,6 +25,7 @@ class ProductItem extends StatelessWidget {
             onPressed: () {},
             icon: const Icon(
               Icons.shopping_cart,
+              color: Colors.deepOrange
             ),
           ),
         ),
