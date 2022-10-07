@@ -1,5 +1,7 @@
+// ignore: unnecessary_import
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shop/components/product_item.dart';
 import 'package:shop/data/dummy_data.dart';
 
 import '../models/product.dart';
@@ -17,19 +19,17 @@ class _ProductsOverviewPageState extends State<ProductsOverviewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Minha loja'),
+        title: const Text('Minha loja'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: GridView.builder(
-          itemCount: widget.loadedProducts.length,
-          itemBuilder: (ctx, i) => Text(widget.loadedProducts[i].title),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            childAspectRatio: 3 / 2,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-          ),
+      body: GridView.builder(
+        padding: const EdgeInsets.all(10),
+        itemCount: widget.loadedProducts.length,
+        itemBuilder: (ctx, i) => ProductItem(product: widget.loadedProducts[i]),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          childAspectRatio: 3 / 2,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
         ),
       ),
     );
